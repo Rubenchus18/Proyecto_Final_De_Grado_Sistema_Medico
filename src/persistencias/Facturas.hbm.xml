@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="ClinicaMedica" name="persistencias.Facturas" optimistic-lock="none" table="Facturas">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="persistencias.Pacientes" fetch="select" name="pacientes">
+            <column name="paciente_id"/>
+        </many-to-one>
+        <property name="monto" type="big_decimal">
+            <column name="monto" precision="10" scale="2"/>
+        </property>
+        <property name="fecha" type="date">
+            <column length="10" name="fecha"/>
+        </property>
+        <property name="pagado" type="java.lang.Boolean">
+            <column name="pagado"/>
+        </property>
+    </class>
+</hibernate-mapping>
