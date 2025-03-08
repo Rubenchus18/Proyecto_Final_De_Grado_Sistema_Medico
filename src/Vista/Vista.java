@@ -55,7 +55,6 @@ public class Vista extends JFrame {
 	public JTextField textFieldNombreUsuario;
 	public JTextField textFieldContraseña;
 	public JLabel lblNewLabelContraseña;
-	public JButton btnNewButtonRegistrarse;
 	public JButton btnNewButtonInicioSesion;
 	public JLabel lblNewLabelNombreUsuario;
 	public JPanel panelMedico;
@@ -63,10 +62,11 @@ public class Vista extends JFrame {
 	public JPanel panelRececipnista;
 	public JPanel panelAdmin;
 	public JLabel lblNewLabelError;
-	private JLabel lblMedico;
-	private JLabel lblPaciente;
-	private JLabel lblRecepcionista;
-	private JLabel lblAdministrador;
+	public JLabel lblMedico;
+	public JLabel lblPaciente;
+	public JLabel lblRecepcionista;
+	public JLabel lblAdministrador;
+	public JLabel labelHora;
 	/**
 	 * Launch the application.
 	 */
@@ -109,37 +109,41 @@ public class Vista extends JFrame {
 		
 		contentPane.add(panelInicio);
 		panelInicio.setLayout(null);
+		 
+		 
+		 labelHora = new JLabel("");
+		 labelHora.setHorizontalAlignment(SwingConstants.CENTER);
+		 labelHora.setForeground(new Color(255, 128, 0));
+		 labelHora.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 25));
+		 labelHora.setBackground(new Color(255, 128, 64));
+		 labelHora.setBounds(943, 11, 376, 83);
+		 panelInicio.add(labelHora);
 		
 		 lblNewLabelError = new JLabel("");
 		 lblNewLabelError.setHorizontalAlignment(SwingConstants.CENTER);
-		 lblNewLabelError.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 33));
-		 lblNewLabelError.setBackground(new Color(255, 128, 0));
-		 lblNewLabelError.setBounds(10, 611, 376, 83);
+		 lblNewLabelError.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 20));
+		 lblNewLabelError.setBackground(new Color(255, 0, 0));
+		 lblNewLabelError.setBounds(437, 648, 376, 83);
 		 panelInicio.add(lblNewLabelError);
 		 
 		  lblNewLabelContraseña = new JLabel("Contraseña");
+		  lblNewLabelContraseña.setForeground(new Color(255, 128, 0));
 		  lblNewLabelContraseña.setBackground(new Color(255, 128, 0));
 		  lblNewLabelContraseña.setHorizontalAlignment(SwingConstants.CENTER);
 		  lblNewLabelContraseña.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 33));
 		  lblNewLabelContraseña.setBounds(437, 396, 376, 83);
 		  panelInicio.add(lblNewLabelContraseña);
-		  
-		   btnNewButtonRegistrarse = new JButton("");
-		   btnNewButtonRegistrarse.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 11));
-		   btnNewButtonRegistrarse.setBounds(640, 547, 173, 155);
-		   btnNewButtonRegistrarse.setContentAreaFilled(false); 
-		   btnNewButtonRegistrarse.setBorderPainted(false);
-		   panelInicio.add(btnNewButtonRegistrarse);
 		   
 		    btnNewButtonInicioSesion = new JButton("");
 		    btnNewButtonInicioSesion.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 11));
-		    btnNewButtonInicioSesion.setBounds(437, 547, 173, 155);
+		    btnNewButtonInicioSesion.setBounds(538, 547, 173, 155);
 		    btnNewButtonInicioSesion.setContentAreaFilled(false); 
 		    btnNewButtonInicioSesion.setBorderPainted(false);
 		    panelInicio.add(btnNewButtonInicioSesion);
 		    
 		     lblNewLabelNombreUsuario = new JLabel("Nombre Usuario");
-		     lblNewLabelNombreUsuario.setBackground(new Color(255, 128, 0));
+		     lblNewLabelNombreUsuario.setForeground(new Color(255, 128, 0));
+		     lblNewLabelNombreUsuario.setBackground(new Color(255, 128, 64));
 		     lblNewLabelNombreUsuario.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 33));
 		     lblNewLabelNombreUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		     lblNewLabelNombreUsuario.setBounds(437, 236, 376, 83);
@@ -157,7 +161,7 @@ public class Vista extends JFrame {
 		     textFieldNombreUsuario.setColumns(10);
 		     
 		lblLogo = new JLabel("");
-		lblLogo.setBounds(469, 11, 287, 230);
+		lblLogo.setBounds(478, 0, 287, 263);
 		panelInicio.add(lblLogo);
 		
 		lblFondo = new JLabel("");

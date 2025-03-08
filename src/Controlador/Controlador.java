@@ -1,14 +1,19 @@
 package Controlador;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 
 import Vista.Vista;
 
@@ -21,6 +26,7 @@ public class Controlador implements ActionListener,MouseListener{
 		   this.vista.btnNewButtonInicioSesion.addActionListener(this);;
 		   this.hibernate=new ControladorHibernet();
 		   imagenes();
+		   iniciarReloj(this.vista.labelHora);
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -58,7 +64,7 @@ public class Controlador implements ActionListener,MouseListener{
 			String nombre=this.vista.textFieldNombreUsuario.getText();
 			String contraseña=this.vista.textFieldContraseña.getText();
 			rol=hibernate.sacarRoles(nombre,contraseña);
-			if(!rol.equalsIgnoreCase(null)) {
+			if(rol!=null) {
 				if(rol.equalsIgnoreCase("admin")) {
 					this.vista.panelInicio.setVisible(false);
 					this.vista.panelAdmin.setVisible(true);
@@ -73,14 +79,15 @@ public class Controlador implements ActionListener,MouseListener{
 					this.vista.panelPacientes.setVisible(true);
 				}
 			}else {
-				this.vista.lblNewLabelError.setText("Error");
+				this.vista.lblNewLabelError.setText("Usuario o Contraseña no existe");
+				this.vista.lblNewLabelError.setForeground(new Color(139, 0, 0));
 			}
 			
 		}
 	
 		
 	}
-	
+	//Metodo
 	public ImageIcon fotoEscalarLabel(JLabel label, String url) {
         ImageIcon imagenDefecto = new ImageIcon(url);
         ImageIcon icono = new ImageIcon(imagenDefecto.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
@@ -95,6 +102,27 @@ public class Controlador implements ActionListener,MouseListener{
 		 this.vista.lblFondo.setIcon(fotoEscalarLabel(this.vista.lblFondo, "imagenes/fondo_aplicacion.jpg"));
 		 this.vista.lblLogo.setIcon(fotoEscalarLabel(this.vista.lblLogo, "imagenes/logo.png"));
 		 this.vista.btnNewButtonInicioSesion.setIcon(fotoEscalarButton(this.vista.btnNewButtonInicioSesion, "imagenes/botonInicoSesion.png"));
-		 this.vista.btnNewButtonRegistrarse.setIcon(fotoEscalarButton(this.vista.btnNewButtonRegistrarse, "imagenes/botonRegistrarse.png"));
+		
 	 }
+	 //Hilo
+	 public void iniciarReloj(JLabel label) {	    
+		    Thread hiloReloj = new Thread(() -> {		      
+		        SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+
+		        while (true) {
+		            try {
+		                String horaActual = formato.format(new Date());
+
+		                SwingUtilities.invokeLater(() -> {
+		                    label.setText(horaActual);
+		                });
+		                Thread.sleep(1000);
+		            } catch (InterruptedException e) {
+		                e.printStackTrace();
+		            }
+		        }
+		    });
+
+		    hiloReloj.start();
+		}
 }

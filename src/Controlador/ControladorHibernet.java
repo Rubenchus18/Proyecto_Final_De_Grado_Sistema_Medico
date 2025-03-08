@@ -39,6 +39,8 @@ public class ControladorHibernet {
 
 	        if (!empleados.isEmpty()) {
 	            rol = empleados.get(0).getRol();
+	        }else {
+	        	rol=null;
 	        }
 	        session.getTransaction().commit();
 	    } catch (Exception e) {
