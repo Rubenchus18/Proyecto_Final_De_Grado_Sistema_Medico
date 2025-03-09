@@ -93,9 +93,9 @@ public class Vista extends JFrame {
 	public JComboBox comboBoxRoles;
 	public JTable tablaUsuarios;
 	public JScrollPane scrollPane;
-	public JComboBox  comboBoxRolesEditar;
 	public JLabel lblNewLabelFondeEditar;
 	public JLabel lblNewLabelFondoCrear;
+	public JLabel lblLaborNombre;
 	/**
 	 * Launch the application.
 	 */
@@ -257,9 +257,12 @@ public class Vista extends JFrame {
 		       lblLaborEditar.setBounds(27, 210, 223, 35);
 		       panelEditarUsuario.add(lblLaborEditar);
 		       
-		        comboBoxRolesEditar = new JComboBox();
-		       comboBoxRolesEditar.setBounds(37, 256, 213, 22);
-		       panelEditarUsuario.add(comboBoxRolesEditar);
+		       lblLaborNombre = new JLabel("");
+		       lblLaborNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		       lblLaborNombre.setForeground(new Color(255, 128, 0));
+		       lblLaborNombre.setFont(new Font("Lucida Sans Typewriter", Font.BOLD, 20));
+		       lblLaborNombre.setBounds(27, 256, 223, 35);
+		       panelEditarUsuario.add(lblLaborNombre);
 		       
 		       lblNewLabelFondeEditar = new JLabel("");
 		       lblNewLabelFondeEditar.setBounds(0, 0, 272, 432);

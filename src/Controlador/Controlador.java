@@ -189,7 +189,7 @@ public class Controlador implements ActionListener,MouseListener{
 		if(e.getSource()==this.vista.btnEditarTotal) {
 				  String nombreUsuario =this.vista.textFieldNombreUsuarioEditar.getText();
 				  String contraseña=this.vista.textFieldContraseñaEditar.getText();
-				  String rol = (String) this.vista.comboBoxRolesEditar.getSelectedItem(); 
+				  String rol =this.vista.lblLaborNombre.getText(); 
 				  if(nombreUsuario.isEmpty()||contraseña.isEmpty()||rol.isEmpty()) {
 					  this.vista.lblErrorEditar.setText("Campos obligatorios");
 				  }else {
@@ -215,7 +215,7 @@ public class Controlador implements ActionListener,MouseListener{
 
 		        this.vista.textFieldNombreUsuarioEditar.setText(nombreUsuario);
 		        this.vista.textFieldContraseñaEditar.setText(contraseña);
-		        this.vista.comboBoxRolesEditar.setSelectedItem(rol);
+		        this.vista.lblLaborNombre.setText(rol);
 		        this.vista.panelEditarUsuario.setVisible(true);
 
 		        this.vista.btnNewButtonEditar.setEnabled(false);
@@ -263,10 +263,7 @@ public class Controlador implements ActionListener,MouseListener{
 		    this.vista.comboBoxRoles.addItem("paciente");
 		    
 		    this.vista.comboBoxRoles.setSelectedItem(null);
-		    this.vista.comboBoxRolesEditar.addItem("admin");
-		    this.vista.comboBoxRolesEditar.addItem("medico");
-		    this.vista.comboBoxRolesEditar.addItem("recepcionista");
-		    this.vista.comboBoxRolesEditar.addItem("paciente");
+		
 		    
 		    this.vista.comboBoxRoles.setSelectedItem(null);
 	 }
