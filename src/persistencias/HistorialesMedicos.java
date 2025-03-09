@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final
+// Generated 9 mar 2025, 17:56:28 by Hibernate Tools 6.5.1.Final
 
 import java.sql.Date;
 
@@ -10,6 +10,7 @@ public class HistorialesMedicos implements java.io.Serializable {
 
 	private Integer id;
 	private Pacientes pacientes;
+	private Medicos medicos;
 	private String diagnostico;
 	private String tratamiento;
 	private String receta;
@@ -18,8 +19,10 @@ public class HistorialesMedicos implements java.io.Serializable {
 	public HistorialesMedicos() {
 	}
 
-	public HistorialesMedicos(Pacientes pacientes, String diagnostico, String tratamiento, String receta, Date fecha) {
+	public HistorialesMedicos(Pacientes pacientes, Medicos medicos, String diagnostico, String tratamiento,
+			String receta, Date fecha) {
 		this.pacientes = pacientes;
+		this.medicos = medicos;
 		this.diagnostico = diagnostico;
 		this.tratamiento = tratamiento;
 		this.receta = receta;
@@ -40,6 +43,14 @@ public class HistorialesMedicos implements java.io.Serializable {
 
 	public void setPacientes(Pacientes pacientes) {
 		this.pacientes = pacientes;
+	}
+
+	public Medicos getMedicos() {
+		return this.medicos;
+	}
+
+	public void setMedicos(Medicos medicos) {
+		this.medicos = medicos;
 	}
 
 	public String getDiagnostico() {

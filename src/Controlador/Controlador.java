@@ -138,7 +138,7 @@ public class Controlador implements ActionListener,MouseListener{
 			this.vista.panelEditarUsuario.setVisible(true);
 		}
 		if (e.getSource() == this.vista.btnCrearTotal) {
-
+			
 		    String nombre = this.vista.textFieldNombreUsuarioCrear.getText().trim();
 		    String contraseña = this.vista.textFieldContraseñaCrear.getText().trim();
 		    String rol = (String) this.vista.comboBoxRoles.getSelectedItem(); 
@@ -146,10 +146,24 @@ public class Controlador implements ActionListener,MouseListener{
 		    if (nombre.isEmpty() || contraseña.isEmpty() || rol.isEmpty()) {
 		        this.vista.lblErrorCrear.setText("Campos obligatorios");
 		    } else {
-		
-		        hibernate.crearUsuario(nombre, contraseña, rol);
-		        mostrarUsuariosEnJTable(); 
-
+		    	Integer id=null;
+		    	System.out.println(rol);
+		    	if(rol.equalsIgnoreCase("admin")) {
+		    		hibernate.crearUsuario(nombre, contraseña, rol);
+		    	}else if(rol.equalsIgnoreCase("medico")) {
+		    		id=hibernate.crearUsuario(nombre, contraseña, rol);
+		    		hibernate.crearMedico(nombre,id);
+			        mostrarUsuariosEnJTable(); 
+		    	}else if(rol.equalsIgnoreCase("recepcionista")) {
+		    		id=hibernate.crearUsuario(nombre, contraseña, rol);
+		    		hibernate.crearRecepcionista(nombre);
+			        mostrarUsuariosEnJTable(); 
+		    	}else if(rol.equalsIgnoreCase("paciente")){
+		    		id=hibernate.crearUsuario(nombre, contraseña, rol);
+		    		hibernate.crearPaciente(nombre,id);
+			        mostrarUsuariosEnJTable(); 
+		    	}
+		      
 		        this.vista.panelCrearAdmin.setVisible(false);
 		        this.vista.btnNewButtonEditar.setEnabled(true);
 		        this.vista.btnNewButtonEliminar.setEnabled(true);

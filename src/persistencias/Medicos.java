@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final
+// Generated 9 mar 2025, 17:56:28 by Hibernate Tools 6.5.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,9 +10,11 @@ import java.util.Set;
 public class Medicos implements java.io.Serializable {
 
 	private Integer id;
+	private Empleados empleados;
 	private String nombre;
 	private String especialidad;
 	private String horario;
+	private Set historialesMedicoses = new HashSet(0);
 	private Set citases = new HashSet(0);
 
 	public Medicos() {
@@ -22,10 +24,13 @@ public class Medicos implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Medicos(String nombre, String especialidad, String horario, Set citases) {
+	public Medicos(Empleados empleados, String nombre, String especialidad, String horario, Set historialesMedicoses,
+			Set citases) {
+		this.empleados = empleados;
 		this.nombre = nombre;
 		this.especialidad = especialidad;
 		this.horario = horario;
+		this.historialesMedicoses = historialesMedicoses;
 		this.citases = citases;
 	}
 
@@ -35,6 +40,14 @@ public class Medicos implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Empleados getEmpleados() {
+		return this.empleados;
+	}
+
+	public void setEmpleados(Empleados empleados) {
+		this.empleados = empleados;
 	}
 
 	public String getNombre() {
@@ -59,6 +72,14 @@ public class Medicos implements java.io.Serializable {
 
 	public void setHorario(String horario) {
 		this.horario = horario;
+	}
+
+	public Set getHistorialesMedicoses() {
+		return this.historialesMedicoses;
+	}
+
+	public void setHistorialesMedicoses(Set historialesMedicoses) {
+		this.historialesMedicoses = historialesMedicoses;
 	}
 
 	public Set getCitases() {

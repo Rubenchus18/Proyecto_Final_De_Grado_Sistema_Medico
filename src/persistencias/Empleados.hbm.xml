@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 mar 2025, 17:56:28 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class catalog="ClinicaMedica" name="persistencias.Empleados" optimistic-lock="none" table="Empleados">
         <id name="id" type="java.lang.Integer">
@@ -15,5 +15,23 @@
         <property name="rol" type="string">
             <column length="13" name="rol" not-null="true"/>
         </property>
+        <set fetch="select" inverse="true" lazy="true" name="medicoses" table="Medicos">
+            <key>
+                <column name="empleado_id" unique="true"/>
+            </key>
+            <one-to-many class="persistencias.Medicos"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="recepcionistases" table="Recepcionistas">
+            <key>
+                <column name="empleado_id" unique="true"/>
+            </key>
+            <one-to-many class="persistencias.Recepcionistas"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="pacienteses" table="Pacientes">
+            <key>
+                <column name="empleado_id" unique="true"/>
+            </key>
+            <one-to-many class="persistencias.Pacientes"/>
+        </set>
     </class>
 </hibernate-mapping>

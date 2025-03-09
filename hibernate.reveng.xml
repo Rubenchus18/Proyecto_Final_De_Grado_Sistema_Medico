@@ -2,10 +2,11 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-catalog="ClinicaMedica" match-name="Citas"/>
-  <table-filter match-catalog="ClinicaMedica" match-name="Empleados"/>
-  <table-filter match-catalog="ClinicaMedica" match-name="Facturas"/>
-  <table-filter match-catalog="ClinicaMedica" match-name="Historiales_Medicos"/>
-  <table-filter match-catalog="ClinicaMedica" match-name="Medicos"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Recepcionistas"/>
   <table-filter match-catalog="ClinicaMedica" match-name="Pacientes"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Medicos"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Historiales_Medicos"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Facturas"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Empleados"/>
+  <table-filter match-catalog="ClinicaMedica" match-name="Citas"/>
 </hibernate-reverse-engineering>

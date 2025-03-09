@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final
+// Generated 9 mar 2025, 17:56:28 by Hibernate Tools 6.5.1.Final
 
 import java.sql.Date;
 import java.sql.Time;

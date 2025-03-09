@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 5 mar 2025, 16:27:50 by Hibernate Tools 6.5.1.Final
+// Generated 9 mar 2025, 17:56:28 by Hibernate Tools 6.5.1.Final
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -11,10 +11,10 @@ import java.util.Set;
 public class Pacientes implements java.io.Serializable {
 
 	private Integer id;
+	private Empleados empleados;
 	private String nombre;
 	private String direccion;
 	private String telefono;
-	private String email;
 	private Date fechaNacimiento;
 	private Set facturases = new HashSet(0);
 	private Set citases = new HashSet(0);
@@ -27,12 +27,12 @@ public class Pacientes implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Pacientes(String nombre, String direccion, String telefono, String email, Date fechaNacimiento,
+	public Pacientes(Empleados empleados, String nombre, String direccion, String telefono, Date fechaNacimiento,
 			Set facturases, Set citases, Set historialesMedicoses) {
+		this.empleados = empleados;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 		this.facturases = facturases;
 		this.citases = citases;
@@ -45,6 +45,14 @@ public class Pacientes implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Empleados getEmpleados() {
+		return this.empleados;
+	}
+
+	public void setEmpleados(Empleados empleados) {
+		this.empleados = empleados;
 	}
 
 	public String getNombre() {
@@ -69,14 +77,6 @@ public class Pacientes implements java.io.Serializable {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Date getFechaNacimiento() {
